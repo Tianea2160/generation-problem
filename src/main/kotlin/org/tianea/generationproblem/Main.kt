@@ -64,8 +64,8 @@ class GenerationAlgorithm(
             .toMutableList()
 
         // 현재 점수 평가
-        val maxIndividual = initialPopulation.maxBy { it.fitness }
-        println("Maximum individual: ${maxIndividual.fitness}")
+        val initialMaxIndividual = initialPopulation.maxBy { it.fitness }
+        println("Maximum individual: ${initialMaxIndividual.fitness}")
 
         for (i in 0 until config.maxGenerationCount) {
             val newPopulation = mutableListOf<Individual>()
@@ -99,8 +99,8 @@ class GenerationAlgorithm(
                 }
             }
 
-            val maxIndividual = newPopulation.maxBy { it.fitness }
-            println("[Generation $i]  Maximum individual: ${maxIndividual.fitness}")
+            val generationMaxIndividual = newPopulation.maxBy { it.fitness }
+            println("[Generation $i]  Maximum individual: ${generationMaxIndividual.fitness}")
             initialPopulation = newPopulation
         }
     }
